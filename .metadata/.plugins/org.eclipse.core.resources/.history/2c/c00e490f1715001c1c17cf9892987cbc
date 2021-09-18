@@ -1,0 +1,25 @@
+package com.picnic;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;	
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+public class SampleSelinium {
+	    @Test
+		public void TestMethod() {
+	
+		//System.setProperty("webdriver.gecko.driver","C:/Users/aravindhl/eclipse-SeliniumProject/seliniumproject/drivers/geckodriver.exe");
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();//create instance of chrome driver
+		driver.get("http://www.google.com");
+		driver.manage().window().maximize();//method used to open URL and then it will wait till the whole page gets loaded
+		WebElement searchbox=driver.findElement(By.name("q"));
+		searchbox.sendKeys("chromeDriver");
+		searchbox.submit();
+		//Thread.sleep(5000);//its sleep time(waiting time)
+		driver.quit();//quitting(Close the browser and terminates the web driver session) 
+		}
+}
+
+
